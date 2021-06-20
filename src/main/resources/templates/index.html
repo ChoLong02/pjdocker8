@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="/member/join">
+    <fieldset>
+        <legend>Member Join</legend>
+        <label>Name: </label>
+        <input type="text" name="name">
+        <br>
+        <label>Password: </label>
+        <input type="password" name="pw">
+        <br>
+        <label>Email: </label>
+        <input type="text" name="email">
+        <br>
+        <button type="submit">Submit</button>
+    </fieldset>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="list: ${members}">
+            <td th:text="${list.id}"></td>
+            <td th:text="${list.name}"></td>
+            <td th:text="${list.email}"></td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>
